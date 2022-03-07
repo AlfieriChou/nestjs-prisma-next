@@ -1,0 +1,11 @@
+model TestUser {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  firstName String? @map("first_name")
+  lastName  String? @map("last_name")
+  social    Json?
+  isAdmin   Boolean @default(false) @map("is_admin")
+  posts  Post[]
+
+  @@map("test_user")
+}

@@ -1,0 +1,10 @@
+model Post {
+  id       Int     @id @default(autoincrement())
+  title    String  @default("") @db.VarChar(100)
+  body     String  @default("") @db.VarChar(255)
+  tags     String @default("") @db.VarChar(255)
+  testUser     TestUser @relation(fields: [testUserId], references: [id])
+  testUserId   Int @map("test_user_id")
+
+  @@map("post")
+}
